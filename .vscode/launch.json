@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "localhost",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "OnPrem",
+            "server": "http://localhost:8080/SDSeminar/",
+            "serverInstance": "SDSeminar",
+            "port": 7049,
+            "authentication": "Windows",
+            "startupObjectType": "Page",
+            "schemaUpdateMode": "Recreate",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "default",
+            "usePublicURLFromServer": true
+            
+        }
+    ]
+}
