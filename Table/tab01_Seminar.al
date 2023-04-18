@@ -1,12 +1,19 @@
 table 50101 "CSD Seminar"
 // CSD1.00 - 20\18-01-01 - D. E. Veloper
 // Chapter 5 - Lab 2-2
+
+
+
 {
+    LookupPageId = "CSD Seminar List";
+    DrillDownPageId = "CSD Seminar List";
     Caption = 'Seminar';
     fields
     {
+
         field(10; "No."; Code[20])
         {
+
             Caption = 'No.';
             trigger OnValidate();
             begin
