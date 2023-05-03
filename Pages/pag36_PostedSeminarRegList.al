@@ -68,16 +68,16 @@ page 50136 "CSD Posted Seminar Reg. List"
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page 50106;
-                    RunPageLink = No.=Field(No.);
-                    RunPageView = where(Document Type=const(Posted Seminar Registration));
+                    RunObject = Page "CSD Seminar Comment Sheet";
+                    RunPageLink = "No." = Field("No.");
+                    RunPageView = WHERE(Document Type = const("CSD Posted Seminar Reg."));
                 }
                 action("&Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
                     RunObject = Page 50139;
-                                    RunPageLink = Document No.=Field(No.);
+                    RunPageLink = "Document No." = Field("No.");
                 }
             }
         }
