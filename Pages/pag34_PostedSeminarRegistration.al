@@ -103,14 +103,14 @@ page 50134 "CSD Posted Seminar Reg."
 
         area(factboxes)
         {
-            part(; 50117)
+            part("Seminar Details"; "CSD Seminar Details FactBox")
             {
-                SubPageLink = No.=Field(Seminar No.);
+                SubPageLink = "No." = Field("Seminar No.");
             }
-            part(; 9084)
+            part("Customer Details"; "Customer Details FactBox")
             {
                 Provider = SeminarRegistrationLines;
-                SubPageLink = No.=Field(Bill-to Customer No.);
+                SubPageLink = "No." = Field("Bill-to Customer No.");
             }
 
         }
@@ -128,37 +128,41 @@ page 50134 "CSD Posted Seminar Reg."
                     Caption = 'Co&mments';
                     Image = Comment;
                     RunObject = Page 50106;
-                    RunPageLink = No.=Field(No.);
-                    RunPageView = where(Document Type=const(Posted Seminar Registration));
+                    RunPageLink = "No." = Field("No.");
+                    RunPageView = where(Document Type=const("Posted Seminar Registration"));
                 }
                 action("&Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
                     RunObject = Page 50139;
-                                    RunPageLink = Document No.=Field(No.);
+                    RunPageLink = "Document No." = Field("No.");
                 }
             }
         }
 
-        area(procesing)
+        area(processing)
         {
             action("&Navigate")
- {
- Caption='&Navigate';
- Image=Navigate;
- Promoted=true;
- PromotedCategory=Process;
- trigger OnAction();
- 
- begin
- Navigate.SetDoc("Posting Date","No.");
- Navigate.RUN;
- end;
- var
- Navigate : page Navigate;
+            {
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+
+                begin
+                    Navigate.SetDoc(Rec."Posting Date", Rec."No.");
+                    Navigate.RUN;
+                end;
+            }
         }
     }
+    var
+        Navigate: page Navigate;
 }
 
-}
+
+
+
+

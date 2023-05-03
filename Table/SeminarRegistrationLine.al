@@ -73,7 +73,7 @@ table 50111 "CSD Seminar Registration Line"
         field(5; "Participant Name"; Text[50])
         {
             Caption = 'Participant Name';
-            CalcFormula = Lookup (Contact.Name where ("No." = Field ("Participant Contact No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = Field("Participant Contact No.")));
             Editable = false;
             FieldClass = FlowField;
         }
