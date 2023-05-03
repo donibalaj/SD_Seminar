@@ -8,7 +8,7 @@ page 50136 "CSD Posted Seminar Reg. List"
     CardPageID = "CSD Posted Seminar Reg.";
     Editable = false;
     PageType = List;
-    SourceTable = Table50118;
+    SourceTable = 50118;
 
     layout
     {
@@ -16,28 +16,28 @@ page 50136 "CSD Posted Seminar Reg. List"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Starting Date"; "Starting Date")
+                field("Starting Date"; Rec."Starting Date")
                 {
                 }
-                field("Seminar No."; "Seminar No.")
+                field("Seminar No."; Rec."Seminar No.")
                 {
                 }
-                field("Seminar Name"; "Seminar Name")
+                field("Seminar Name"; Rec."Seminar Name")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
-                field(Duration; Duration)
+                field(Duration; Rec.Duration)
                 {
                 }
-                field("Maximum Participants"; "Maximum Participants")
+                field("Maximum Participants"; Rec."Maximum Participants")
                 {
                 }
-                field("Room Resource No."; "Room Resource No.")
+                field("Room Resource No."; Rec."Room Resource No.")
                 {
                 }
             }
