@@ -44,16 +44,11 @@ page 50136 "CSD Posted Seminar Reg. List"
         }
         area(factboxes)
         {
-            part(; 50117)
+            part("Seminar Details"; 50117)
             {
-                SubPageLink = No.=Field(Seminar No.);
+                SubPageLink = "No." = Field("Seminar No.");
             }
-            systempart(; Links)
-            {
-            }
-            systempart(; Notes)
-            {
-            }
+
         }
     }
 
@@ -70,7 +65,7 @@ page 50136 "CSD Posted Seminar Reg. List"
                     Image = Comment;
                     RunObject = Page "CSD Seminar Comment Sheet";
                     RunPageLink = "No." = Field("No.");
-                    RunPageView = WHERE(Document Type = const("CSD Posted Seminar Reg."));
+                    RunPageView = WHERE("Table name" = CONST("Posted Seminar Reg. Header"));
                 }
                 action("&Charges")
                 {

@@ -158,7 +158,7 @@ table 50132 "CSD Seminar Ledger Entry"
             var
                 UserMgt: Codeunit "User Management";
             begin
-                UserMgt.LookupUserID("User ID");
+                //usermgt.LookupUserID("User Id");
             end;
 
         }

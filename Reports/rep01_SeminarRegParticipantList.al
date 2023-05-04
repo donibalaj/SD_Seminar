@@ -63,6 +63,7 @@ report 50101 "CSD SeminarRegParticipantList"
         }
     }
 
+
     requestpage
     {
         layout
@@ -87,6 +88,12 @@ report 50101 "CSD SeminarRegParticipantList"
                 }
             }
         }
+
+    }
+
+    labels
+    {
+        SeminarRegistrationHeaderCap = 'Seminar Registration List';
     }
 
 }

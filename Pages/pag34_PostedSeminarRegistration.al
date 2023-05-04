@@ -127,9 +127,9 @@ page 50134 "CSD Posted Seminar Reg."
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page 50106;
                     RunPageLink = "No." = Field("No.");
-                    RunPageView = where(Document Type=const("Posted Seminar Registration"));
+                    RunObject = Page "CSD Seminar Comment Sheet";
+                    RunPageView = WHERE("Table name" = CONST("Posted Seminar Reg. HEader"));
                 }
                 action("&Charges")
                 {

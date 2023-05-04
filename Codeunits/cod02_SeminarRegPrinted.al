@@ -4,13 +4,13 @@ codeunit 50102 "CSD SeminarRegPrinted"
 {
     TableNo = 50110;
 
-    trigger OnRun(){
+    trigger OnRun();
     begin
-            Find;
-            Rec."No. Printed" += 1;
-            Modify;
-            Commit;
-        end;
-}
+        Rec.Find;
+        Rec."No. Printed" += 1;
+        Rec.Modify;
+        Commit;
+    end;
+
 
 }

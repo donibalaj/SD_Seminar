@@ -43,7 +43,7 @@ table 50133 "CSD Seminar Register"
 
                 UserMgt: Codeunit "User Management";
             begin
-                UserMgt.LookupUserID("User ID");
+                //usermgt.LookupUserID("User Id");
             end;
         }
         field(7; "Journal Batch Name"; Code[10])
