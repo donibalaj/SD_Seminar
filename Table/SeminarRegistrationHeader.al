@@ -304,7 +304,7 @@ table 50110 "CSD Seminar Reg. Header"
         key(PK; "No.")
         {
         }
-        key(Key2; "Room Resource No.")
+        key(Key1; "Room Resource No.")
         {
             SumIndexFields = Duration;
         }

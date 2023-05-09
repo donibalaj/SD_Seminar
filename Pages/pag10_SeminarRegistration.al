@@ -16,7 +16,7 @@ page 50110 "CSD Seminar Registration"
             {
                 field("No."; Rec."No.")
                 {
-                    AssistEdit = true;
+
                     trigger OnAssistEdit();
                     begin
                         if Rec.AssistEdit(xRec) then

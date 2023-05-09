@@ -54,13 +54,14 @@ table 50133 "CSD Seminar Register"
 
     keys
     {
-        key(Key1; "No.")
+        key(PK; "No.")
+        {
+            Clustered = true;
+        }
+        key(Key1; "Creation Date")
         {
         }
-        key(Key2; "Creation Date")
-        {
-        }
-        key(Key3; "Source Code", "Creation Date")
+        key(Key2; "Source Code", "Creation Date")
         {
         }
     }
