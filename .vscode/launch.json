@@ -11,7 +11,7 @@
             "port": 7049,
             "authentication": "Windows",
             "startupObjectType": "Page",
-            "schemaUpdateMode": "Recreate",
+            "schemaUpdateMode": "ForceSync",
             "breakOnError": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,

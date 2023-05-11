@@ -18,23 +18,24 @@ page 50122 "CSD Seminar Registers"
             {
                 field("No."; Rec."No.")
                 {
+                    ApplicationArea = ALL;
 
                 }
                 field("Creation Date"; Rec."Creation Date")
                 {
-
+                    ApplicationArea = ALL;
                 }
                 field("User ID"; Rec."User ID")
                 {
-
+                    ApplicationArea = ALL;
                 }
                 field("Source Code"; Rec."Source Code")
                 {
-
+                    ApplicationArea = ALL;
                 }
                 field("Journal Batch Name"; Rec."Journal Batch Name")
                 {
-
+                    ApplicationArea = ALL;
                 }
             }
         }
@@ -42,9 +43,11 @@ page 50122 "CSD Seminar Registers"
         {
             systempart("Links"; Links)
             {
+                ApplicationArea = ALL;
             }
             systempart("Notes"; Notes)
             {
+                ApplicationArea = ALL;
             }
 
         }
@@ -56,6 +59,7 @@ page 50122 "CSD Seminar Registers"
         {
             action("Seminar Ledgers")
             {
+                ApplicationArea = ALL;
                 Image = WarrantyLedger;
                 RunObject = codeunit "CSD Seminar Reg.-Show Ledger";
             }

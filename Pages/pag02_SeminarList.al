@@ -7,6 +7,7 @@ page 50102 "CSD Seminar List"
     Caption = 'Seminar List';
     Editable = false;
     CardPageId = 50101;
+
     UsageCategory = Lists;
 
     layout
@@ -17,31 +18,32 @@ page 50102 "CSD Seminar List"
             {
                 field("No."; Rec."No.")
                 {
-
+                    ApplicationArea = ALL;
 
                 }
                 field(Name; Rec.Name)
                 {
 
-
+                    ApplicationArea = ALL;
                 }
                 field("Seminar Duration"; Rec."Seminar Duration")
                 {
 
-
+                    ApplicationArea = ALL;
                 }
                 field("Seminar Price"; Rec."Seminar Price")
                 {
-
+                    ApplicationArea = ALL;
 
                 }
                 field("Minimum Participants"; Rec."Minimum Participants")
                 {
-
+                    ApplicationArea = ALL;
 
                 }
                 field("Maximum Participants"; rec."Maximum Participants")
                 {
+                    ApplicationArea = ALL;
 
 
                 }
@@ -51,9 +53,11 @@ page 50102 "CSD Seminar List"
         {
             systempart("Links"; Links)
             {
+                ApplicationArea = ALL;
             }
             systempart("Notes"; Notes)
             {
+                ApplicationArea = ALL;
             }
         }
     }
@@ -67,6 +71,7 @@ page 50102 "CSD Seminar List"
             {
                 action("Co&mments")
                 {
+                    ApplicationArea = ALL;
                     RunObject = page "CSD Seminar Comment Sheet";
                     RunPageLink = "Table Name" = const(Seminar),
                      "No." = field("No.");
@@ -78,6 +83,7 @@ page 50102 "CSD Seminar List"
                 // >> Lab 8-2
                 action("Ledger Entries")
                 {
+                    ApplicationArea = ALL;
                     RunObject = page "CSD Seminar Ledger Entries";
                     RunPageLink = "Seminar No." = field("No.");
                     Promoted = true;
@@ -87,6 +93,7 @@ page 50102 "CSD Seminar List"
                 }
                 action("&Registrations")
                 {
+                    ApplicationArea = ALL;
                     RunObject = page "CSD Seminar Registration List";
                     RunPageLink = "Seminar No." = field("No.");
                     Image = Timesheet;
@@ -100,6 +107,7 @@ page 50102 "CSD Seminar List"
         {
             action("Seminar Registration")
             {
+                ApplicationArea = ALL;
                 RunObject = page "CSD Seminar Registration";
                 RunPageLink = "Seminar No." = field("No.");
                 RunPageMode = Create;

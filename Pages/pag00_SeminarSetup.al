@@ -7,6 +7,7 @@ page 50100 "CSD Seminar Setup"
     InsertAllowed = false;
     DeleteAllowed = false;
     UsageCategory = Administration;
+    ApplicationArea = ALL;
 
     layout
     {
@@ -16,13 +17,15 @@ page 50100 "CSD Seminar Setup"
             {
                 field("Seminar Nos."; Rec."Seminar Nos.")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Seminar Registration Nos."; Rec."Seminar Registration Nos.")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Posted Seminar Reg. Nos."; Rec."Posted Seminar Reg. Nos.")
                 {
-
+                    ApplicationArea = ALL;
                 }
             }
         }
@@ -33,9 +36,9 @@ page 50100 "CSD Seminar Setup"
 
     trigger OnOpenPage();
     begin
-        if not rec.get then begin
-            rec.init;
-            rec.insert;
+        if not rec.Get() then begin
+            rec.Init();
+            rec.Insert();
         end;
     end;
 

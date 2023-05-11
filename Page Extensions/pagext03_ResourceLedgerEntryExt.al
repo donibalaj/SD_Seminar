@@ -6,7 +6,7 @@ pageextension 50103 "CSD ResourceLedgerEntryExt" extends "Resource Ledger Entrie
     {
         addlast(content)
         {
-            field("eminar No."; Rec."CSD Seminar No.")
+            field("Seminar No."; Rec."CSD Seminar No.")
             {
             }
             field("Seminar Registration No."; Rec."CSD Seminar Registration No.")
@@ -20,6 +20,5 @@ pageextension 50103 "CSD ResourceLedgerEntryExt" extends "Resource Ledger Entrie
         // Add changes to page actions here
     }
 
-    var
-        myInt: Integer;
+
 }

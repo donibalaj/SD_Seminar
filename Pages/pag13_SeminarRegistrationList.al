@@ -9,6 +9,7 @@ page 50113 "CSD Seminar Registration List"
     PageType = List;
     SourceTable = "CSD Seminar Reg. Header";
     UsageCategory = lists;
+    ApplicationArea = all;
 
     layout
     {
@@ -18,27 +19,35 @@ page 50113 "CSD Seminar Registration List"
             {
                 field("No."; Rec."No.")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Starting Date"; Rec."Starting Date")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Seminar No."; Rec."Seminar No.")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Seminar Name"; Rec."Seminar Name")
                 {
+                    ApplicationArea = ALL;
                 }
                 field(Status; Rec.Status)
                 {
+                    ApplicationArea = ALL;
                 }
                 field(Duration; Rec.Duration)
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Maximum Participants"; Rec."Maximum Participants")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Room Resource No."; Rec."Room Resource No.")
                 {
+                    ApplicationArea = ALL;
                 }
             }
         }
@@ -46,9 +55,11 @@ page 50113 "CSD Seminar Registration List"
         {
             systempart("Links"; Links)
             {
+                ApplicationArea = ALL;
             }
             systempart("Notes"; Notes)
             {
+                ApplicationArea = ALL;
             }
         }
     }
@@ -62,6 +73,7 @@ page 50113 "CSD Seminar Registration List"
                 Caption = '&Seminar Registration';
                 action("Co&mments")
                 {
+                    ApplicationArea = ALL;
                     Caption = 'Co&mments';
                     Image = Comment;
                     RunObject = Page 50106;
@@ -70,6 +82,7 @@ page 50113 "CSD Seminar Registration List"
                 }
                 action("&Charges")
                 {
+                    ApplicationArea = ALL;
                     Caption = '&Charges';
                     Image = Costs;
                     RunObject = Page 50124;
@@ -77,6 +90,7 @@ page 50113 "CSD Seminar Registration List"
                 }
                 action("&Post")
                 {
+                    ApplicationArea = ALL;
                     Caption = '&Post';
                     Image = PostDocument;
                     Promoted = true;
@@ -87,6 +101,7 @@ page 50113 "CSD Seminar Registration List"
                 }
                 action("&Print")
                 {
+                    ApplicationArea = ALL;
                     Caption = '&Print';
                     Image = Print;
                     Promoted = true;

@@ -10,74 +10,86 @@ codeunit 50100 "CSD Seminar-Post"
     begin
         ClearAll;
         SeminarRegHeader := Rec;
-        with SeminarRegHeader do begin
 
-            TestField("Posting Date");
-            TestField("Document Date");
-            TestField("Seminar No.");
-            TestField(Duration);
-            TestField("Instructor Resource No.");
-            TestField("Room Resource No.");
-            TestField(Status, Status::Closed);
-            SeminarRegLine.Reset;
-            SeminarRegLine.SetRange("Document No.", "No.");
-            if SeminarRegLine.IsEmpty then
-                Error(Text001);
 
-            Window.Open('#1#################################\\' + Text002);
-            Window.Update(1, StrSubstNo('%1 %2', Text003, "No."));
-            if SeminarRegHeader."Posting No." = '' then begin
-                TestField("Posting No. Series");
-                "Posting No." := NoSeriesMgt.GetNextNo("Posting No. Series", "Posting Date", true);
-                modify;
-                Commit;
-                SourceCodeSetup.Get;
-                SourceCode := SourceCodeSetup."CSD Seminar";
-            end;
-            SeminarRegLine.LockTable;
-            SourceCodeSetup.Get;
-            SourceCode := SourceCodeSetup."CSD Seminar";
-            PstdSeminarRegHeader.Init;
-            PstdSeminarRegHeader.TransferFields(SeminarRegHeader);
-            PstdSeminarRegHeader."No." := "Posting No.";
-            PstdSeminarRegHeader."No. Series" := "Posting No. Series";
-            PstdSeminarRegHeader."Source Code" := SourceCode;
-            PstdSeminarRegHeader."User ID" := UserId;
-            PstdSeminarRegHeader.Insert;
-            Window.Update(1, StrSubstNo(Text004, "No.",
- PstdSeminarRegHeader."No."));
-            Delete(true);
+        SeminarRegHeader.TestField(SeminarRegHeader."Posting Date");
+        SeminarRegHeader.TestField(SeminarRegHeader."Document Date");
+        SeminarRegHeader.TestField(SeminarRegHeader."Seminar No.");
+        SeminarRegHeader.TestField(SeminarRegHeader.Duration);
+        SeminarRegHeader.TestField(SeminarRegHeader."Instructor Resource No.");
+        SeminarRegHeader.TestField(SeminarRegHeader."Room Resource No.");
+        SeminarRegHeader.TestField(SeminarRegHeader.Status, SeminarRegHeader.Status::Closed);
+
+
+        SeminarRegLine.Reset;
+        SeminarRegLine.SetRange("Document No.", SeminarRegHeader."No.");
+        if SeminarRegLine.IsEmpty then
+            Error(Text001);
+
+        Window.Open('#1#################################\\' + Text002);
+        Window.Update(1, StrSubstNo('%1 %2', Text003, SeminarRegHeader."No."));
+
+
+
+        if SeminarRegHeader."Posting No." = '' then begin
+            SeminarRegHeader.TestField(SeminarRegHeader."Posting No. Series");
+            SeminarRegHeader."Posting No." := NoSeriesMgt.GetNextNo(SeminarRegHeader."Posting No. Series", SeminarRegHeader."Posting Date", true);
+            SeminarRegHeader.modify;
+            Commit;
+
 
         end;
-        Rec := SeminarRegHeader;
+        SeminarRegLine.LockTable;
+        SourceCodeSetup.Get;
+        SourceCode := SourceCodeSetup."CSD Seminar";
+        PstdSeminarRegHeader.Init;
+        PstdSeminarRegHeader.TransferFields(SeminarRegHeader);
+        PstdSeminarRegHeader."No." := SeminarRegHeader."Posting No.";
+        PstdSeminarRegHeader."No. Series" := SeminarRegHeader."Posting No. Series";
+        PstdSeminarRegHeader."Source Code" := SourceCode;
+        PstdSeminarRegHeader."User ID" := UserId;
+        PstdSeminarRegHeader.Insert;
+        Window.Update(1, StrSubstNo(Text004, SeminarRegHeader."No.", PstdSeminarRegHeader."No."));
+        // SeminarRegHeader.Delete(true);
+
+
+        // Rec := SeminarRegHeader;
         CopyCommentLines(SeminarCommentLine."Table Name"::"Seminar Registration Header",
  SeminarCommentLine."Table Name"::"Posted Seminar Reg. Header", SeminarRegHeader."No.", PstdSeminarRegHeader."No.");
         CopyCharges(SeminarRegHeader."No.", PstdSeminarRegHeader."No.");
         LineCount := 0;
+
+
+
         SeminarRegLine.Reset;
         SeminarRegLine.SetRange("Document No.", SeminarRegHeader."No.");
         if SeminarRegLine.FindSet then begin
             repeat
+                Window.Update(2, LineCount);
+                SeminarRegLine.TestField("Bill-to Customer No.");
+                SeminarRegLine.TestField("Participant Contact No.");
+                if not SeminarRegLine."To Invoice" then begin
+                    SeminarRegLine."Seminar Price" := 0;
+                    SeminarRegLine."Line Discount %" := 0;
+                    SeminarRegLine."Line Discount Amount" := 0;
+                    SeminarRegLine.Amount := 0;
+                end;
+
+                PostSeminarJnlLine(2);
+                PstdSeminarRegLine.Init;
+                PstdSeminarRegLine.TransferFields(SeminarRegLine);
+                PstdSeminarRegLine."Document No." :=
+                PstdSeminarRegHeader."No.";
+                PstdSeminarRegLine.Insert;
+
+
             until SeminarRegLine.Next = 0;
         end;
 
-        Window.Update(2, LineCount);
-        SeminarRegLine.TestField("Bill-to Customer No.");
-        SeminarRegLine.TestField("Participant Contact No.");
-        if not SeminarRegLine."To Invoice" then begin
-            SeminarRegLine."Seminar Price" := 0;
-            SeminarRegLine."Line Discount %" := 0;
-            SeminarRegLine."Line Discount Amount" := 0;
-            SeminarRegLine.Amount := 0;
-        end;
+
         // Post seminar entry
-        PostSeminarJnlLine(2); // Participant
-                               // Insert posted seminar registration line
-        PstdSeminarRegLine.Init;
-        PstdSeminarRegLine.TransferFields(SeminarRegLine);
-        PstdSeminarRegLine."Document No." :=
-        PstdSeminarRegHeader."No.";
-        PstdSeminarRegLine.Insert;
+        // Participant
+        // Insert posted seminar registration line
         // Post charges to seminar ledger
         PostCharges;
         // Post instructor to seminar ledger
@@ -85,6 +97,8 @@ codeunit 50100 "CSD Seminar-Post"
                                // Post seminar room to seminar ledger
         PostSeminarJnlLine(1); // Room
 
+        SeminarRegHeader.Delete(true);
+        Rec := SeminarRegHeader;
     end;
 
 

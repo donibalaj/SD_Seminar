@@ -5,6 +5,8 @@ page 50101 "CSD Seminar Card"
     PageType = Card;
     SourceTable = "CSD Seminar";
     Caption = 'Seminar Card';
+    ApplicationArea = all;
+    UsageCategory = Administration;
     layout
     {
         area(content)
@@ -13,6 +15,7 @@ page 50101 "CSD Seminar Card"
             {
                 field("No."; Rec."No.")
                 {
+                    ApplicationArea = ALL;
                     AssistEdit = true;
                     trigger OnAssistEdit();
                     begin
@@ -22,28 +25,35 @@ page 50101 "CSD Seminar Card"
                 }
                 field(Name; Rec.Name)
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Search Name"; Rec."Search Name")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Seminar Duration";
                 Rec."Seminar Duration")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Minimum Participants";
                 Rec."Minimum Participants")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Maximum Participants";
                 Rec."Maximum Participants")
                 {
+                    ApplicationArea = ALL;
                 }
                 field(Blocked; Rec.Blocked)
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Last Date Modified";
                 Rec."Last Date Modified")
                 {
+                    ApplicationArea = ALL;
                 }
             }
             group(Invoicing)
@@ -51,13 +61,16 @@ page 50101 "CSD Seminar Card"
                 field("Gen. Prod. Posting Group";
                 Rec."Gen. Prod. Posting Group")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("VAT Prod. Posting Group";
                 Rec."VAT Prod. Posting Group")
                 {
+                    ApplicationArea = ALL;
                 }
                 field("Seminar Price"; Rec."Seminar Price")
                 {
+                    ApplicationArea = ALL;
                 }
             }
         }
@@ -65,9 +78,11 @@ page 50101 "CSD Seminar Card"
         {
             systempart("Links"; Links)
             {
+                ApplicationArea = ALL;
             }
             systempart("Notes"; Notes)
             {
+                ApplicationArea = ALL;
             }
         }
     }
@@ -80,8 +95,7 @@ page 50101 "CSD Seminar Card"
                 action("Co&mments")
                 {
                     RunObject = page "CSD Seminar Comment Sheet";
-                    RunPageLink = "Table Name" = const(Seminar),
-                     "No." = field("No.");
+                    RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
                     Image = Comment;
                     Promoted = true;
                     PromotedIsBig = true;
@@ -113,6 +127,7 @@ page 50101 "CSD Seminar Card"
         {
             action("Seminar Registration")
             {
+                ApplicationArea = ALL;
                 RunObject = page "CSD Seminar Registration";
                 RunPageLink = "Seminar No." = field("No.");
                 RunPageMode = Create;

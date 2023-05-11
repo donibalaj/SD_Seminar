@@ -16,18 +16,18 @@ page 50106 "CSD Seminar Comment Sheet"
             {
                 field(Date; Rec.Date)
                 {
-
+                    ApplicationArea = ALL;
 
                 }
                 field(Code; Rec.Code)
                 {
                     Visible = false;
-
+                    ApplicationArea = ALL;
                 }
                 field(Comment; Rec.Comment)
                 {
 
-
+                    ApplicationArea = ALL;
                 }
             }
         }

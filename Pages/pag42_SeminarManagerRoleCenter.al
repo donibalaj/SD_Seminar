@@ -13,9 +13,11 @@ page 50142 "CSD Seminar Manager RoleCenter"
             {
                 part(Activities; "CSD Seminar Manager Activities")
                 {
+                    ApplicationArea = ALL;
                 }
                 part(MySeminars; "CSD My Seminars")
                 {
+                    ApplicationArea = ALL;
                 }
             }
 
@@ -23,14 +25,16 @@ page 50142 "CSD Seminar Manager RoleCenter"
             {
                 part(MyCustomers; "My Customers")
                 {
+                    ApplicationArea = ALL;
                 }
                 systempart(MyNotifications; MyNotes)
                 {
+                    ApplicationArea = ALL;
                 }
                 part(ReportInbox; "Report Inbox Part")
                 {
+                    ApplicationArea = ALL;
                 }
-
 
             }
         }
@@ -42,7 +46,8 @@ page 50142 "CSD Seminar Manager RoleCenter"
         {
             action(SeminarRegistrations)
             {
-                Caption = 'Seminar Registrations';
+                ApplicationArea = ALL;
+                Caption = 'Posted Seminar Registrations';
                 Image = List;
                 RunObject = Page "CSD Posted Seminar Reg. List";
                 ToolTip = 'Create seminar registrations';
@@ -50,6 +55,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
             }
             action(Seminars)
             {
+                ApplicationArea = ALL;
                 Caption = 'Seminars';
                 Image = List;
                 RunObject = Page "CSD Seminar List";
@@ -57,6 +63,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
             }
             action(Instructors)
             {
+                ApplicationArea = ALL;
                 Caption = 'Instructors';
                 RunObject = Page "Resource List";
                 RunPageView = WHERE(Type = const(Person));
@@ -64,6 +71,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
             }
             action(Rooms)
             {
+                ApplicationArea = ALL;
                 Caption = 'Instructors';
                 RunObject = Page "Resource List";
                 RunPageView = WHERE(Type = const(Machine));
@@ -79,6 +87,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
             }
             action("Sales Credit Memos")
             {
+                ApplicationArea = ALL;
                 Caption = 'Sales Credit Memos';
                 RunObject = Page "Sales Credit Memos";
                 ToolTip = 'Revert the financial transactions involved when your customers want to cancel a purchase';
@@ -86,6 +95,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
             }
             action(Customers)
             {
+                ApplicationArea = ALL;
                 Caption = 'Customers';
                 Image = Customer;
                 RunObject = Page "Customer List";
@@ -101,6 +111,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
                 ToolTip = 'View history for sales, shipments, and inventory.';
                 action("Posted Seminar Registrations")
                 {
+                    ApplicationArea = ALL;
                     Caption = 'Posted Seminar Registrations';
                     Image = Timesheet;
                     RunObject = Page "CSD Posted Seminar Reg. List";
@@ -108,6 +119,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
                 }
                 action("Posted Sales Invoices")
                 {
+                    ApplicationArea = ALL;
                     Caption = 'Posted Sales Invoices';
                     Image = PostedOrder;
                     RunObject = Page "Posted Sales Invoices";
@@ -115,6 +127,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
                 }
                 action("Posted Sales Credit Memos")
                 {
+                    ApplicationArea = ALL;
                     Caption = 'Posted Sales Credit Memos';
                     Image = PostedOrder;
                     RunObject = Page "Posted Sales Credit Memos";
@@ -122,6 +135,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
                 }
                 action("Registers")
                 {
+                    ApplicationArea = ALL;
                     Caption = 'Seminar Registers';
                     Image = PostedShipment;
                     RunObject = Page "CSD Seminar Registers";
@@ -133,6 +147,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
         {
             action(NewSeminarRegistration)
             {
+                ApplicationArea = ALL;
                 Caption = 'Seminar Registration';
                 Image = NewTimesheet;
                 RunObject = page "CSD Seminar Registration";
@@ -140,6 +155,7 @@ page 50142 "CSD Seminar Manager RoleCenter"
             }
             action(NewSalesInvoice)
             {
+                ApplicationArea = ALL;
                 Caption = 'Sales Invoice';
                 Image = NewSalesInvoice;
                 RunObject = page "Sales Invoice";
@@ -150,12 +166,14 @@ page 50142 "CSD Seminar Manager RoleCenter"
         {
             action(CreateInvoices)
             {
+                ApplicationArea = ALL;
                 Caption = 'Create Invoices';
                 Image = CreateJobSalesInvoice;
                 RunObject = report "CSD Create Seminar Invoices";
             }
             action(Navigate)
             {
+                ApplicationArea = ALL;
                 Caption = 'Navigate';
                 Image = Navigate;
                 RunObject = page Navigate;
