@@ -176,6 +176,7 @@ codeunit 50100 "CSD Seminar-Post"
             repeat
                 PostSeminarJnlLine(3); // Charge
             until SeminarCharge.next = 0;
+        SeminarCharge.DeleteAll();
     end;
 
 

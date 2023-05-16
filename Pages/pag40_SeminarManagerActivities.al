@@ -7,6 +7,7 @@ page 50140 "CSD Seminar Manager Activities"
 
     layout
     {
+
         area(Content)
         {
             cuegroup(Registrations)
@@ -15,6 +16,7 @@ page 50140 "CSD Seminar Manager Activities"
                 field(Planned; Rec.Planned)
                 {
                     ApplicationArea = ALL;
+
                 }
                 field(Registered; Rec.Registered)
                 {

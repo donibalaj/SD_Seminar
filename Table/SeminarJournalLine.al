@@ -34,11 +34,10 @@ table 50131 "CSD Seminar Journal Line"
         {
             Caption = 'Document Date';
         }
-        field(6; "Entry Type"; Option)
+        field(6; "Entry Type"; enum "Entry Type")
         {
             Caption = 'Entry Type';
-            OptionCaption = 'Registration,Cancelation';
-            OptionMembers = Registration,Cancelation;
+
         }
         field(7; "Document No."; Code[20])
         {
@@ -53,17 +52,14 @@ table 50131 "CSD Seminar Journal Line"
             Caption = 'Bill-to Customer No.';
             TableRelation = Customer;
         }
-        field(11; "Charge Type"; Option)
+        field(11; "Charge Type"; enum "Charge Type")
         {
             Caption = 'Charge Type';
-            OptionCaption = 'Instructor,Room,Participant,Charge';
-            OptionMembers = Instructor,Room,Participant,Charge;
         }
-        field(12; Type; Option)
+        field(12; Type; enum "Seminar Charge")
         {
             Caption = 'Type';
-            OptionCaption = 'Resource,G/L Account';
-            OptionMembers = Resource,"G/L Account";
+
         }
         field(13; Quantity; Decimal)
         {
@@ -117,11 +113,10 @@ table 50131 "CSD Seminar Journal Line"
             Caption = 'Res. Ledger Entry No.';
             TableRelation = "Res. Ledger Entry";
         }
-        field(30; "Source Type"; Option)
+        field(30; "Source Type"; enum "Source Type")
         {
             Caption = 'Source Type';
-            OptionCaption = '" ,Seminar"';
-            OptionMembers = " ",Seminar;
+
         }
         field(31; "Source No."; Code[20])
         {

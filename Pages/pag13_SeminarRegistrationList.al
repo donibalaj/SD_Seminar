@@ -68,6 +68,20 @@ page 50113 "CSD Seminar Registration List"
     {
         area(navigation)
         {
+            action("Reg Report")
+            {
+                ApplicationArea = all;
+                Caption = 'Shfaq reportin';
+
+                trigger OnAction()
+                var
+                    Raporti: Report "CSD SeminarRegParticipantList";
+                begin
+                    Rec.SetFilter("No.", Rec."No.");
+                    //SetSelectionFilter(Rec);
+                    Report.Run(Report::"CSD SeminarRegParticipantList", true, false, Rec);
+                end;
+            }
             group("&Seminar Registration")
             {
                 Caption = '&Seminar Registration';

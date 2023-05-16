@@ -35,11 +35,10 @@ table 50132 "CSD Seminar Ledger Entry"
         {
             Caption = 'Document Date';
         }
-        field(5; "Entry Type"; Option)
+        field(5; "Entry Type"; enum "Entry Type")
         {
             Caption = 'Entry Type';
-            OptionCaption = 'Registration,Cancelation';
-            OptionMembers = Registration,Cancelation;
+
         }
         field(6; "Document No."; Code[20])
         {
@@ -54,17 +53,14 @@ table 50132 "CSD Seminar Ledger Entry"
             Caption = 'Bill-to Customer No.';
             TableRelation = Customer;
         }
-        field(9; "Charge Type"; Option)
+        field(9; "Charge Type"; enum "Charge Type")
         {
             Caption = 'Charge Type';
-            OptionCaption = 'Instructor,Room,Participant,Charge';
-            OptionMembers = Instructor,Room,Participant,Charge;
         }
-        field(10; Type; Option)
+        field(10; Type; enum "Seminar Charge")
         {
             Caption = 'Type';
-            OptionCaption = 'Resource,G/L Account';
-            OptionMembers = Resource,"G/L Account";
+
         }
         field(11; Quantity; Decimal)
         {
@@ -118,11 +114,10 @@ table 50132 "CSD Seminar Ledger Entry"
             Caption = 'Res. Ledger Entry No.';
             TableRelation = "Res. Ledger Entry";
         }
-        field(22; "Source Type"; Option)
+        field(22; "Source Type"; enum "Source Type")
         {
             Caption = 'Source Type';
-            OptionCaption = '" ,Seminar"';
-            OptionMembers = " ",Seminar;
+
         }
         field(23; "Source No."; Code[20])
         {

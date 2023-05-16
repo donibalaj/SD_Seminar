@@ -14,7 +14,6 @@ page 50141 "CSD My Seminars"
             {
                 field("Seminar No."; Rec."Seminar No.")
                 {
-
                     ApplicationArea = ALL;
                 }
                 field(Name; Seminar.Name)

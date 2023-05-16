@@ -17,11 +17,10 @@ table 50121 "CSD Posted Seminar Charge"
         {
             Caption = 'Line No.';
         }
-        field(3; Type; Option)
+        field(3; Type; enum "Seminar Charge")
         {
             Caption = 'Type';
-            OptionCaption = 'Resource,G/L Account';
-            OptionMembers = Resource,"G/L Account";
+
 
 
         }

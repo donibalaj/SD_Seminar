@@ -7,6 +7,7 @@ report 50100 "CSD Create Seminar Invoices"
     Caption = 'Create Seminar Invoices';
     UsageCategory = ReportsAndAnalysis;
     ProcessingOnly = true;
+    ApplicationArea = all;
 
     dataset
     {

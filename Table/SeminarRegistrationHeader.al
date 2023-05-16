@@ -89,11 +89,11 @@ table 50110 "CSD Seminar Reg. Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(7; Status; Option)
+        field(7; Status; Enum "Seminar Status")
         {
             Caption = 'Status';
-            OptionCaption = 'Planning,Registration,Closed,Canceled';
-            OptionMembers = Planning,Registration,Closed,Canceled;
+            InitValue = Registration;
+
         }
         field(8; Duration; Decimal)
         {
@@ -199,7 +199,7 @@ table 50110 "CSD Seminar Reg. Header"
             trigger OnValidate();
             begin
                 if ("Seminar Price" <> xRec."Seminar Price") and
-                   (Status <> Status::Canceled)
+                   (rec.Status <> rec.Status::Cancelled)
                 then begin
                     SeminarRegLine.Reset;
                     SeminarRegLine.SetRange("Document No.", "No.");
@@ -331,7 +331,7 @@ table 50110 "CSD Seminar Reg. Header"
     begin
 
         if (CurrFieldNo > 0) then
-            TestField(Status, Status::Canceled);
+            TestField(rec.Status, rec.Status::Cancelled);
         SeminarRegLine.RESET;
         SeminarRegLine.SETRANGE("Document No.", "No.");
         SeminarRegLine.SETRANGE(Registered, true);

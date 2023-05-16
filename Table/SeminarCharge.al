@@ -17,11 +17,9 @@ table 50112 "CSD Seminar Charge"
         {
             Caption = 'Line No.';
         }
-        field(3; Type; Option)
+        field(3; Type; enum "Seminar Charge")
         {
             Caption = 'Type';
-            OptionCaption = 'Resource,G/L Account';
-            OptionMembers = Resource,"G/L Account";
 
             trigger OnValidate();
             var

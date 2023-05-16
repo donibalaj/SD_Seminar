@@ -57,11 +57,10 @@ table 50118 "CSD Posted Seminar Reg. Header"
         }
 
 
-        field(7; Status; Option)
+        field(7; Status; enum "Seminar status")
         {
             Caption = 'Status';
-            OptionCaption = 'Planning,Registration,Closed,Canceled';
-            OptionMembers = Planning,Registration,Closed,Canceled;
+
         }
         field(8; Duration; Decimal)
         {
