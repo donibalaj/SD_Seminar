@@ -37,6 +37,7 @@ page 50141 "CSD My Seminars"
     {
         area(Processing)
         {
+
             action(Open)
             {
                 ApplicationArea = ALL;
@@ -50,7 +51,6 @@ page 50141 "CSD My Seminars"
 
     var
         Seminar: Record "CSD Seminar";
-
 
 
     trigger OnOpenPage();
@@ -68,7 +68,7 @@ page 50141 "CSD My Seminars"
         Clear(Seminar);
     end;
 
-    local procedure OpenSeminarCard();
+    procedure OpenSeminarCard();
     begin
         if Seminar."No." <> '' then
             Page.Run(Page::"CSD Seminar Card", Seminar);

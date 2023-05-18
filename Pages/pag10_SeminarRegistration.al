@@ -77,7 +77,7 @@ page 50110 "CSD Seminar Registration"
             }
             group("Seminar Room")
             {
-                field(" Room Resource No."; Rec."Room Resource No.")
+                field("Room Resource No."; Rec."Room Resource No.")
                 {
                     ApplicationArea = ALL;
                 }

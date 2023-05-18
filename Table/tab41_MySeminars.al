@@ -12,12 +12,20 @@ table 50141 "CSD My Seminars"
             TableRelation = User;
             DataClassification = ToBeClassified;
 
+            trigger OnLookup();
+            begin
+                user.get("User ID");
+            end;
+
+
+
         }
         field(20; "Seminar No."; Code[20])
         {
             Caption = 'Seminar No.';
             TableRelation = "CSD Seminar";
             DataClassification = ToBeClassified;
+
         }
     }
 
@@ -29,6 +37,10 @@ table 50141 "CSD My Seminars"
         }
     }
 
+    var
+
+        user: record User;
+        sno: record "CSD Seminar";
 
 
 }

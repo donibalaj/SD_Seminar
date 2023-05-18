@@ -18,10 +18,16 @@ page 50140 "CSD Seminar Manager Activities"
                     ApplicationArea = ALL;
 
                 }
+
+                field(Cancelled; Rec.Cancelled)
+                {
+                    ApplicationArea = all;
+                }
                 field(Registered; Rec.Registered)
                 {
                     ApplicationArea = ALL;
                 }
+
                 actions
                 {
                     action(New)

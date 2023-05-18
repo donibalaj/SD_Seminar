@@ -14,8 +14,9 @@ page 50142 "CSD Seminar Manager RoleCenter"
                 part(Activities; "CSD Seminar Manager Activities")
                 {
                     ApplicationArea = ALL;
+
                 }
-                part(MySeminars; "CSD My Seminars")
+                part(MySeminars; "CSD Seminar List")
                 {
                     ApplicationArea = ALL;
                 }

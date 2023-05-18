@@ -30,7 +30,17 @@ table 50140 "CSD Seminar Cue"
             CalcFormula = Count("CSD Seminar Reg. Header"
  where(Status = const(Closed)));
         }
+
+        field(50; Cancelled; Integer)
+        {
+            Caption = 'Cancelled';
+            FieldClass = FlowField;
+            CalcFormula = Count("CSD Seminar Reg. Header"
+ where(Status = const(Cancelled)));
+        }
     }
+
+
 
     keys
     {
